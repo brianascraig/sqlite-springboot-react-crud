@@ -1,0 +1,14 @@
+.head {
+    /*background-color: black;*/
+    color: white;
+}
+
+.body{
+    font-size: 14;
+}
+
+.table{
+    min-width: 700px;
+}
+
+

@@ -1,0 +1,65 @@
+.Footer {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 30px;
+    font-size: 16px;
+    border-top: 2px solid var(--color_light_gray);
+    bottom: 0;
+    position: absolute;
+}
+
+.left, .right {
+    display: inline;
+    flex: 1;
+}
+
+.left {
+    text-align: left;
+}
+
+.right {
+    text-align: right;
+    /*padding-top: 2%;*/
+}
+
+.links {
+    display: inline;
+    color: var(--color_light_gray);
+
+}
+
+.Footer table {
+    display: block;
+    border: none;
+    border-collapse: collapse;
+}
+
+.Footer a, a:link, a:visited {
+    color: var(--color_light_gray);
+    text-decoration: none;
+}
+
+.Footer a.search {
+    padding: 6px 12px;
+    background: var(--color_light_orange);
+    color: var(--color_dark_blue);
+    margin-left: 8px;
+}
+.Footer a.search:hover {
+    background: var(--color_dark_gray);
+}
+
+.contactsTrackerLogo {
+    display: inline;
+    height: 50px;
+}
+
+@media (max-width: 767px) {
+    .contactsTrackerLogo {
+        height: 32px;
+    }
+    .Footer .search {
+        display: block;
+        float: right;
+    }
+}

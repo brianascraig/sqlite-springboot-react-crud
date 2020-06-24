@@ -1,0 +1,69 @@
+.Header {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 30px;
+    font-size: 16px;
+    background: var(--color_dark_blue);
+    z-index: 1100;
+    box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12);
+}
+
+.left, .right {
+    display: inline;
+    flex: 1;
+}
+
+.left {
+    text-align: left;
+}
+
+.right {
+    text-align: right;
+    /*padding-top: 2%;*/
+}
+
+.links {
+    display: inline;
+    color: var(--color_light_gray);
+
+}
+
+/*.contactsManagementLinks {*/
+/*    display: inline;*/
+/*}*/
+
+.Header table {
+    display: block;
+    border: none;
+    border-collapse: collapse;
+}
+
+.Header a, a:link, a:visited {
+    color: var(--color_light_gray);
+    text-decoration: none;
+}
+
+.Header a.search {
+    padding: 6px 12px;
+    background: var(--color_light_orange);
+    color: var(--color_dark_blue);
+    margin-left: 8px;
+}
+.Header a.search:hover {
+    background: var(--color_dark_gray);
+}
+
+.contactsTrackerLogo {
+    display: inline;
+    height: 50px;
+}
+
+@media (max-width: 767px) {
+    .contactsTrackerLogo {
+        height: 32px;
+    }
+    .Header .search {
+        display: block;
+        float: right;
+    }
+}
