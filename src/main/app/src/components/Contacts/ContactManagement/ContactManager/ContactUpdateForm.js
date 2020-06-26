@@ -58,7 +58,7 @@ class ContactUpdateForm extends Component {
     };
    updateMember = async (id, firstName, lastName, email, phone) => {
        let data = await api.put(`/${id}`, {first_name: firstName, last_name: lastName,
-            email: email, phone_number: phone})
+            email: email, phone_number: phone});
        console.log("inside update");
     };
 render() {

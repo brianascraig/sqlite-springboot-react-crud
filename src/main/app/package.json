@@ -9,7 +9,8 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
-    "react-router": "latest"
+    "react-router": "latest",
+    "lodash": "latest"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -35,6 +36,8 @@
   "devDependencies": {
     "@material-ui/core": "^4.10.2",
     "axios": "^0.19.2",
-    "react-router-dom": "^5.2.0"
+    "faker": "^4.1.0",
+    "react-router-dom": "^5.2.0",
+    "semantic-ui-react": "^0.88.2"
   }
 }

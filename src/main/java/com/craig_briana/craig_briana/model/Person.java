@@ -14,6 +14,9 @@ public class Person {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
+    @Column(name = "full_name")
+    private String full_name;
+
     @Column(name = "first_name")
     private String first_name;
 
@@ -53,6 +56,14 @@ public class Person {
         this.last_name = last_name;
     }
 
+    public String getFull_name() {
+        return full_name;
+    }
+
+    public void setFull_name(String full_name) {
+        this.full_name = full_name;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -69,9 +80,10 @@ public class Person {
         this.phone_number = phone_number;
     }
 
-    public Person(String first_name, String last_name, String email, String phone_number) {
+    public Person(String first_name, String last_name, String full_name, String email, String phone_number) {
         this.first_name = first_name;
         this.last_name = last_name;
+        this.full_name = full_name;
         this.email = email;
         this.phone_number = phone_number;
     }

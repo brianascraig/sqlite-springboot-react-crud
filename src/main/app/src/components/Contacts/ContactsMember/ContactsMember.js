@@ -26,7 +26,7 @@ class ContactsMember extends Component {
 
     createContact = async () => {
         let response = await api.post('/',{ first_name: "Percy",
-            last_name: "Jones", email: "pjones@yahoo.com", phone_number: "5645878842"});
+            last_name: "Jones", full_name: "Percy Jones", email: "pjones@yahoo.com", phone_number: "5645878842"});
         console.log(response);
         this.getMembers();
     };
@@ -36,9 +36,9 @@ class ContactsMember extends Component {
         this.getMembers();
     };
 
-    updateMember = async (id, firstName, lastName, email, phone) => {
+    updateMember = async (id, firstName, lastName, fullName, email, phone) => {
         let data = await api.put(`/${id}`, {first_name: firstName, last_name: lastName,
-            email: email, phone_number: phone})
+           full_name: fullName, email: email, phone_number: phone})
     };
 
     render() {
@@ -47,13 +47,10 @@ class ContactsMember extends Component {
                 <Button onClick={this.createContact}>Create Contact</Button>
                 {this.state.members.map(member => <h2 key={member.id} onClick={() =>
                     this.updateMember(member.id, "SpongeB",
-                    "SquarePants", "spob@gmail.com", "53739352")}>
+                    "SquarePants", "SpongeB Squarepants", "spob@gmail.com", "53739352")}>
                     {member.first_name}
                     <Button onClick={()=> this.deleteMember(member.id)}>Delete</Button>
-
                 </h2>)}
-
-
             </div>
         )
     }

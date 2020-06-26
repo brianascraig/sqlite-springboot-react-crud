@@ -42,7 +42,7 @@ public class PeopleController {
     public ResponseEntity<Person> addPerson(@RequestBody Person person) {
         try {
             Person _person = peopleService
-                    .addPerson(new Person(person.getFirst_name(), person.getLast_name(), person.getEmail(), person.getPhone_number()));
+                    .addPerson(new Person(person.getFirst_name(), person.getLast_name(), person.getFull_name(), person.getEmail(), person.getPhone_number()));
             return new ResponseEntity<>(_person, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.EXPECTATION_FAILED);

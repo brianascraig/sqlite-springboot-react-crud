@@ -48,6 +48,9 @@ public class PeopleServiceImpl implements PeopleService {
             personUpdate.setId(person.getId());
             personUpdate.setFirst_name(person.getFirst_name());
             personUpdate.setLast_name(person.getLast_name());
+            personUpdate.setFull_name(person.getFirst_name() + " " + person.getLast_name());
+            personUpdate.setEmail(person.getEmail());
+            personUpdate.setPhone_number(person.getPhone_number());
             peopleRepository.save(personUpdate);
             return personUpdate;
         }

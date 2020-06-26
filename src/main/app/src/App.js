@@ -12,6 +12,7 @@ import ContactManagement from "./components/Contacts/ContactManagement/ContactMa
 import ContactsGrid from "./components/Contacts/ContactsGrid/ContactsGrid";
 import ContactsFinder from "./components/Contacts/ContactsFinder/ContactsFinder";
 import axios from 'axios';
+import ContactsList from "./components/Contacts/ContactsList/ContactsList";
 
 const RootApp = () => {
     return (
@@ -33,9 +34,9 @@ class App extends React.Component {
                 <Header />
                 <Switch>
                     <Route path='/api/contacts/finder' component={ContactsFinder}/>
-                    <Route path='/api/contacts/list-view' component={ContactCreation}/>
+                    <Route path='/api/contacts/list-view' component={ContactsList}/>
                     <Route path='/api/contacts/grid-view' component={ContactsGrid}/>
-                    <Route path='/api/create-contact' component={ContactCreation}/>
+                    <Route path='/api/contacts/create-contact' component={ContactCreation}/>
                     <Route path='/api/contacts/manage' component={ContactManagement}/>
                     <Route exact path='/api/contacts' component={Home}/>
                     <Route path='*' component={PageDoesNotExist}/>
