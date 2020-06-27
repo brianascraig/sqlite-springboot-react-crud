@@ -29,6 +29,7 @@ class ContactManagement extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleClickOpen = this.handleClickOpen.bind(this);
         this.filterMember = this.filterMember.bind(this);
+
     }
 
     state = {
@@ -89,7 +90,7 @@ class ContactManagement extends Component {
 
     updateMember = async (id, firstName, lastName, email, phone) => {
         await api.put(`/${id}`, {first_name: firstName, last_name: lastName,
-            email: email, phone_number: phone})
+            email: email, phone_number: phone});
     };
 
 
@@ -109,8 +110,8 @@ class ContactManagement extends Component {
                                 <TableCell className="styledTableCell" align="right">Last Name</TableCell>
                                 <TableCell className="styledTableCell" align="right">Email</TableCell>
                                 <TableCell className="styledTableCell" align="right">Phone Number</TableCell>
-                                <TableCell className="styledTableCell" align="left">Delete</TableCell>
-                                <TableCell className="styledTableCell" align="left">Edit</TableCell>
+                                <TableCell className="styledTableCell" align="left"> </TableCell>
+                                <TableCell className="styledTableCell" align="left"> </TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody className="body">
@@ -123,12 +124,12 @@ class ContactManagement extends Component {
                                     <TableCell className="styledTableCell" align="right">{member.email}</TableCell>
                                     <TableCell className="styledTableCell" align="right">{member.phone_number}</TableCell>
                                     <TableCell className="styledTableCell" align="right">
-                                        <Button onClick={()=>this.deleteMember(member.id)}>Delete</Button></TableCell>
+                                        <Button onClick={()=>{this.deleteMember(member.id)}}>Delete</Button></TableCell>
                                     <TableCell className="styledTableCell" align="right">
                                         <Button variant="outlined" color="primary" onClick={()=>this.handleClickOpen(member.id)}>
                                             Edit
                                         </Button>
-                                        /></TableCell>
+                                        </TableCell>
                                 </TableRow>
                             )}
                         </TableBody>

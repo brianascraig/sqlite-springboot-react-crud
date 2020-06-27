@@ -4,6 +4,7 @@ import _ from 'lodash';
 import faker from 'faker';
 import { Search, Grid, Header, Segment } from 'semantic-ui-react';
 import axios from "axios";
+import Paper from "@material-ui/core/Paper/Paper";
 
 // export default function contactsFinder() {
 //     return (
@@ -65,13 +66,28 @@ export default class ContactsFinder extends Component {
             if (this.state.value.length < 1) return this.setState(this.initialState);
 
             const re = new RegExp(_.escapeRegExp(this.state.value), 'i');
-            const isMatch = (result) => re.test(result.full_name);
+            const isMatch = (result) => re[Symbol.match](`${result.full_name}`);
 
             this.setState({
                 isLoading: false,
                 results: _.filter(this.state.members, isMatch),
             })
         }, 300)
+    };
+
+    resultsRender = (results) => {
+        return(
+                <Grid item xs={4} key={results.id}>
+                    <Paper className="paper">
+                        <ul>
+                            <li>{results.first_name} {results.last_name}</li>
+                            <li>{results.email}</li>
+                            <li>{results.phone_number}</li>
+                        </ul>
+                    </Paper>
+                </Grid>
+            )
+
     };
 
     render() {
@@ -88,21 +104,22 @@ export default class ContactsFinder extends Component {
                         })}
                         results={results}
                         value={value}
+                        resultRenderer={this.resultsRender}
                         {...this.props}
                     />
                 </Grid.Column>
-                <Grid.Column width={10}>
-                    <Segment>
-                        <Header>State</Header>
-                        <pre style={{ overflowX: 'auto' }}>
-              {JSON.stringify(this.state, null, 2)}
-            </pre>
-                        <Header>Options</Header>
-                        <pre style={{ overflowX: 'auto' }}>
-              {JSON.stringify(this.state, null, 2)}
-            </pre>
-                    </Segment>
-                </Grid.Column>
+            {/*    <Grid.Column width={10}>*/}
+            {/*        <Segment>*/}
+            {/*            <Header>State</Header>*/}
+            {/*            <pre style={{ overflowX: 'auto' }}>*/}
+            {/*  {JSON.stringify(this.state, null, 2)}*/}
+            {/*</pre>*/}
+            {/*            <Header>Options</Header>*/}
+            {/*            <pre style={{ overflowX: 'auto' }}>*/}
+            {/*  {JSON.stringify(this.state, null, 2)}*/}
+            {/*</pre>*/}
+            {/*        </Segment>*/}
+            {/*    </Grid.Column>*/}
             </Grid>
         )
     }
